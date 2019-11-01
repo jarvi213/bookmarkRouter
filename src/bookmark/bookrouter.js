@@ -12,7 +12,7 @@ bookRouter
         res
             .json(BOOKMARKSTORE);
       })
-    .post((req, res) => {
+    .post(bodyParser, (req, res) => {
         const {
             title,
             content
@@ -35,7 +35,7 @@ bookRouter
             title,
             content
         };
-        BOOKMARK.push(bookmark);
+        BOOKMARKSTORE.push(bookmark);
         logger.info(`Bookmark with id ${uuid} created`);
         res
             .status(201)
